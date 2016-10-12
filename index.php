@@ -21,8 +21,6 @@
 
 				<header role="banner">
 
-					<?php if ($current_warning != "") { ?><div id="warning"><a href="<?php echo $current_warningURL; ?>" target="_blank">ALERT: <?php echo $current_warning; ?></a></div><?php } ?>
-
 					<a href="index.php" style="z-index: 1000;"><div id="brand" style="z-index: 1000;"><div class="logo"><img src="images/rooster.svg" alt="The Weathervane"></div><span id="brandname">Weathervane</span></div></a>
 
 					<div id="finder-container">
@@ -42,6 +40,8 @@
 							<a href="#weather-3"><li>7 Day</li></a>
 						</ul>
 					</nav>
+
+					<?php if ($current_warning != "") { ?><div id="warning"><a href="<?php echo $current_warningURL; ?>" target="_blank">ALERT: <?php echo $current_warning; ?></a></div><?php } ?>
 
 				</header>
 
