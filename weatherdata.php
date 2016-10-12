@@ -11,7 +11,7 @@ if ($_GET['address'] != "") {
 	if ($commaCount > 1) { $fullLocation = explode(', ',$fullLocation,2); $fullLocation = $fullLocation[1]; }
 	$lat = $address_obj->results[0]->geometry->location->lat;
 	$lon = $address_obj->results[0]->geometry->location->lng;
-	$currentLocLink = "<a href='index.php' class='currentLink'>Return to Current Location</a>";
+	$currentLocLink = '<a href="index.php" class="currentLink" onclick="ga(\'send\', \'event\', \'Content Nav\', \'click\', \'Return to Current Location\');">Return to Current Location</a>';
 } else {
 	$ip = $_SERVER['REMOTE_ADDR'];
 	if ($ip == '172.148.32.1') { $ip = '68.100.63.75'; }
