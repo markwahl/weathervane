@@ -21,7 +21,9 @@
 
 				<header role="banner">
 
-					<a href="index.php"><div id="brand"><div class="logo"><img src="images/rooster.svg" alt="The Weathervane"></div><span id="brandname">Weathervane</span></div></a>
+					<?php if ($current_warning != "") { ?><div id="warning"><a href="<?php echo $current_warningURL; ?>" target="_blank">ALERT: <?php echo $current_warning; ?></a></div><?php } ?>
+
+					<a href="index.php" style="z-index: 1000;"><div id="brand" style="z-index: 1000;"><div class="logo"><img src="images/rooster.svg" alt="The Weathervane"></div><span id="brandname">Weathervane</span></div></a>
 
 					<div id="finder-container">
 						<input type="checkbox" id="finder-toggle"/>
@@ -42,6 +44,7 @@
 					</nav>
 
 				</header>
+
 
 				<div class="pages">
 					<div id="w1" class="page">

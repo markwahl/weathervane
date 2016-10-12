@@ -43,6 +43,8 @@ $current_temp = $wgov_obj->currentobservation->Temp;
 $current_desc = $wgov_obj->currentobservation->Weather;
 $current_desc = trim($current_desc);
 $current_forecast = $wgov_obj->data->text[0];
+$current_warning = $wgov_obj->data->hazard[0];
+$current_warningURL = $wgov_obj->data->hazardUrl[0];
 $temp_label1 = $wgov_obj->time->tempLabel[0];
 if ($temp_label1 == 'Low') {
 	$temp_low = $wgov_obj->data->temperature[0];

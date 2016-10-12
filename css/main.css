@@ -61,6 +61,28 @@
 		line-height: 60px;
 	}
 
+	#warning {
+		position: absolute; 
+		top: 60px; 
+		height:30px; 
+		width:100%; 
+		text-align: center; 
+		border-top: 1px solid #ccc;
+		background-color:#b6212d; 
+		font-size: 1.5em; 
+		line-height: 30px;
+		z-index: -1;
+	}
+
+	#warning a {
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	#warning a:hover {
+		text-decoration: underline;
+	}
+
 	main {
 		max-width: 1000px;
 		margin: 10px auto;
@@ -336,6 +358,14 @@
 
 		nav ul li {
 			line-height: 36px;
+		}
+
+		#warning {
+			position: absolute; 
+			top: 97px;
+			height: 20px;
+			line-height: 20px; 
+			font-size: 1.2em;
 		}
 
 		#finder-container {
