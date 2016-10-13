@@ -45,54 +45,71 @@
 
 				</header>
 
+				<?php if ($locationUnknown) { ?>
 
-				<div class="pages">
-					<div id="w1" class="page">
-						<main role="main">
-							<div id="location-time">
-								<h1><?php echo $fullLocation; ?></h1>
-								<?php echo $currentLocLink; ?><p><?php echo date('l, F jS, Y - g:i A'); ?></p>
-							</div>
-							<div id="weather-grid">
-								<div class="col-100 grid-temp"><?php echo $current_temp; ?>&deg;</div>
-								<div class="col-100 grid-hilow">
-									<span style="font-size: 13px; font-weight: normal; margin-left: -5px;">Low - High</span><br/>
-									<?php echo $temp_low; ?>&deg; - <?php echo $temp_hi; ?>&deg;
+					<div class="pages">
+						<div id="w1" class="page">
+							<main role="main">
+								<div id="location-time">
+									<h1>Sorry, we couldn't find your location.</h1>
+									<p>Please try the location search again</p>
+									<p>OR</p>
+									<?php echo $currentLocLink; ?>
 								</div>
-								<div class="col-100 grid-icon">
-									<img src="images/wi.gif" data-src="images/icons/<?php echo $current_icon; ?>.svg" alt="<?php echo $current_desc; ?>">
-									<noscript><style>.grid-icon img { display: none; }</style><strong>Weather is:</strong><br></noscript>
-									<span style="display: block; margin-bottom: 20px;"><?php echo $current_desc; ?></span>
+								<div class="clear"></div>
+							</main>
+						</div>
+					</div>
+
+				<?php } else { ?>
+
+					<div class="pages">
+						<div id="w1" class="page">
+							<main role="main">
+								<div id="location-time">
+									<h1><?php echo $fullLocation; ?></h1>
+									<?php echo $currentLocLink; ?><p><?php echo date('l, F jS, Y - g:i A'); ?></p>
 								</div>
-								<div class="grid-forecast""><?php echo $current_forecast; ?></div>
-							</div>
-							<div class="clear"></div>
-						</main>
+								<div id="weather-grid">
+									<div class="col-100 grid-temp"><?php echo $current_temp; ?>&deg;</div>
+									<div class="col-100 grid-hilow">
+										<span style="font-size: 13px; font-weight: normal; margin-left: -5px;">Low - High</span><br/>
+										<?php echo $temp_low; ?>&deg; - <?php echo $temp_hi; ?>&deg;
+									</div>
+									<div class="col-100 grid-icon">
+										<img src="images/wi.gif" data-src="images/icons/<?php echo $current_icon; ?>.svg" alt="<?php echo $current_desc; ?>">
+										<noscript><style>.grid-icon img { display: none; }</style><strong>Weather is:</strong><br></noscript>
+										<span style="display: block; margin-bottom: 20px;"><?php echo $current_desc; ?></span>
+									</div>
+									<div class="grid-forecast""><?php echo $current_forecast; ?></div>
+								</div>
+								<div class="clear"></div>
+							</main>
+						</div>
+
+						<div id="w2" class="page">
+							<main role="main"><div id="location-time"><h1><?php echo $fullLocation; ?></h1><?php $datetime = new DateTime('tomorrow'); ?><p><?php echo $datetime->format('l, F jS, Y'); ?></p></div><div id="weather-grid"><div class="col-100 grid-hilow"><span style="font-size: 13px; font-weight: normal; margin-left: -5px;">Low - High</span><br/><?php echo $tomorrow_temp_low; ?>&deg; - <?php echo $tomorrow_temp_hi; ?>&deg;</div><div class="col-100 grid-icon""><img src="images/wi.gif" data-src="images/icons/<?php echo $tomorrow_icon; ?>.svg" alt="<?php echo $tomorrow_weather_short; ?>"></div><div class="grid-forecast"><?php echo $tomorrow_weather; ?></div></div><div class="clear"></div>
+							</main>
+						</div>
+
+						<div id="w3" class="page">
+							<main role="main" class="multiday-table">
+								<div id="location-time"><h1><?php echo $fullLocation; ?></h1><p>7-Day Forecast</p></div><div id="weather-grid"><div class="col-100 multiday titles"><div class="period">DAY</div><div class="temp">TEMP</div><div class="pop">PREC</div><div class="weather">FORECAST</div></div><?php echo $multiday; ?></div><div class="clear">
+									
+								</div>
+							</main>
+						</div>
 					</div>
 
-					<div id="w2" class="page">
-						<main role="main"><div id="location-time"><h1><?php echo $fullLocation; ?></h1><?php $datetime = new DateTime('tomorrow'); ?><p><?php echo $datetime->format('l, F jS, Y'); ?></p></div><div id="weather-grid"><div class="col-100 grid-hilow"><span style="font-size: 13px; font-weight: normal; margin-left: -5px;">Low - High</span><br/><?php echo $tomorrow_temp_low; ?>&deg; - <?php echo $tomorrow_temp_hi; ?>&deg;</div><div class="col-100 grid-icon""><img src="images/wi.gif" data-src="images/icons/<?php echo $tomorrow_icon; ?>.svg" alt="<?php echo $tomorrow_weather_short; ?>"></div><div class="grid-forecast"><?php echo $tomorrow_weather; ?></div></div><div class="clear"></div>
-						</main>
-					</div>
+				<?php } ?>
 
-					<div id="w3" class="page">
-						<main role="main" class="multiday-table">
-							<div id="location-time"><h1><?php echo $fullLocation; ?></h1><p>7-Day Forecast</p></div><div id="weather-grid"><div class="col-100 multiday titles"><div class="period">DAY</div><div class="temp">TEMP</div><div class="pop">PREC</div><div class="weather">FORECAST</div></div><?php echo $multiday; ?></div><div class="clear">
-								
-							</div>
-						</main>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
 <footer role="contentinfo">
-	<div class="center">
-		<strong>THE WEATHERVANE</strong><br>
-		Current weather and forecasts without all the extra stuff! <br>
-		<small>Copyright &copy; <time datetime="2016">2016</time> | Data from <a href="http://www.weather.gov" target="_blank" style="color:#fff" onclick="ga('send', 'event', 'Footer Nav', 'click', 'NWS');">NWS</a></small>
+	<div class="center"><strong>THE WEATHERVANE</strong><br>Current weather and forecasts without all the extra stuff! <br><small>Copyright &copy; <time datetime="2016">2016</time> | Data from <a href="http://www.weather.gov" target="_blank" style="color:#fff" onclick="ga('send', 'event', 'Footer Nav', 'click', 'NWS');">NWS</a></small>
 	</div>
 </footer>
 
@@ -110,7 +127,9 @@
 
   ga('create', 'UA-85228879-1', 'auto');
   ga('send', 'pageview');
-
+  <?php if ($locationUnknown) { ?>
+  		ga('send', 'event', 'Location Unknown', 'load', 'Location Not Found Message');
+  <?php } ?>
 </script>
 
 </html>
