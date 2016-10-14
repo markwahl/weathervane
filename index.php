@@ -1,15 +1,25 @@
 <?php include "weatherdata.php"; ?>
 
+<?php 
+
+	if ($titleLocation) {
+		$thetitle = $titleLocation." | The Weathervane";
+	} else {
+		$thetitle = "The Weathervane | Simple, Local Weather";
+	}
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
 
 <head>
-	<title>The Weathervane</title>
+	<title><?php echo $thetitle; ?></title>
 	<meta charset="utf-8">
 	<meta name="description" content="The Weathervane: Current weather and forecasts without all the extra stuff!">
 	<meta name='viewport' content='content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
-	<link href="css/main.css" rel="stylesheet" media="all">
+	<link href="/css/main.css" rel="stylesheet" media="all">
 	<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
 </head>
 
@@ -21,7 +31,7 @@
 
 				<header role="banner">
 
-					<a href="/" style="z-index: 1000;" onclick="ga('send', 'event', 'Brand', 'click', 'Homepage');"><div id="brand" style="z-index: 1000;"><div class="logo"><img src="images/rooster.svg" alt="The Weathervane"></div><span id="brandname">Weathervane</span></div></a>
+					<a href="/" style="z-index: 1000;" onclick="ga('send', 'event', 'Brand', 'click', 'Homepage');"><div id="brand" style="z-index: 1000;"><div class="logo"><img src="/images/rooster.svg" alt="The Weathervane"></div><span id="brandname">Weathervane</span></div></a>
 
 					<div id="finder-container">
 						<input type="checkbox" id="finder-toggle"/>
@@ -77,7 +87,7 @@
 										<?php echo $temp_low; ?>&deg; - <?php echo $temp_hi; ?>&deg;
 									</div>
 									<div class="col-100 grid-icon">
-										<img src="images/wi.gif" data-src="images/icons/<?php echo $current_icon; ?>.svg" alt="<?php echo $current_desc; ?>">
+										<img src="/images/wi.gif" data-src="/images/icons/<?php echo $current_icon; ?>.svg" alt="<?php echo $current_desc; ?>">
 										<noscript><style>.grid-icon img { display: none; }</style><strong>Weather is:</strong><br></noscript>
 										<span style="display: block; margin-bottom: 20px;"><?php echo $current_desc; ?></span>
 									</div>
@@ -88,7 +98,7 @@
 						</div>
 
 						<div id="w2" class="page">
-							<main role="main"><div id="location-time"><h1><?php echo $fullLocation; ?></h1><?php $datetime = new DateTime('tomorrow'); ?><p><?php echo $datetime->format('l, F jS, Y'); ?></p></div><div id="weather-grid"><div class="col-100 grid-hilow"><span style="font-size: 13px; font-weight: normal; margin-left: -5px;">Low - High</span><br/><?php echo $tomorrow_temp_low; ?>&deg; - <?php echo $tomorrow_temp_hi; ?>&deg;</div><div class="col-100 grid-icon""><img src="images/wi.gif" data-src="images/icons/<?php echo $tomorrow_icon; ?>.svg" alt="<?php echo $tomorrow_weather_short; ?>"></div><div class="grid-forecast"><?php echo $tomorrow_weather; ?></div></div><div class="clear"></div>
+							<main role="main"><div id="location-time"><h1><?php echo $fullLocation; ?></h1><?php $datetime = new DateTime('tomorrow'); ?><p><?php echo $datetime->format('l, F jS, Y'); ?></p></div><div id="weather-grid"><div class="col-100 grid-hilow"><span style="font-size: 13px; font-weight: normal; margin-left: -5px;">Low - High</span><br/><?php echo $tomorrow_temp_low; ?>&deg; - <?php echo $tomorrow_temp_hi; ?>&deg;</div><div class="col-100 grid-icon""><img src="/images/wi.gif" data-src="/images/icons/<?php echo $tomorrow_icon; ?>.svg" alt="<?php echo $tomorrow_weather_short; ?>"></div><div class="grid-forecast"><?php echo $tomorrow_weather; ?></div></div><div class="clear"></div>
 							</main>
 						</div>
 
@@ -109,6 +119,8 @@
 </div>
 
 <footer role="contentinfo">
+	<div class="center" id="citylinks"><h4>QuickWeather</h4><a href="/city/new-york/" title="Local Weather for New York City" onclick="ga('send', 'event', 'QuickWeather', 'click', 'New York');">New York</a> | <a href="/city/washington-dc/" title="Local Weather for Washington, DC" onclick="ga('send', 'event', 'QuickWeather', 'click', 'Washington, DC');">Washington, DC</a> | <a href="/city/chicago/" title="Local Weather for Chicago, IL" onclick="ga('send', 'event', 'QuickWeather', 'click', 'Chicago');">Chicago</a> | <a href="/city/denver/" title="Local Weather for Denver, CO" onclick="ga('send', 'event', 'QuickWeather', 'click', 'Denver');">Denver</a> | <a href="/city/los-angeles/" title="Local Weather for Los Angeles, CA" onclick="ga('send', 'event', 'QuickWeather', 'click', 'Los Angeles');">Los Angeles</a></div>
+
 	<div class="center"><strong>THE WEATHERVANE</strong><br>Current weather and forecasts without all the extra stuff! <br><small>Copyright &copy; <time datetime="2016">2016</time> | Data from <a href="http://www.weather.gov" target="_blank" style="color:#fff" onclick="ga('send', 'event', 'Footer Nav', 'click', 'NWS');">NWS</a></small>
 	</div>
 </footer>

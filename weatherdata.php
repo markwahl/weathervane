@@ -3,7 +3,11 @@
 // GET LOCATION
 
 if ($_GET['address'] != "") {
-	$address = urlencode($_GET['address']);
+	$searchAddress = urlencode($_GET['address']);
+}
+
+if ($searchAddress) {
+	$address = $searchAddress;
 	$address_json = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=AIzaSyDvFkjTCs4WSoKZwjY5qJ6sWRpNjBWqiLk");
 	$address_obj = json_decode($address_json);
 	$fullLocation = str_replace(', USA','',$address_obj->results[0]->formatted_address);

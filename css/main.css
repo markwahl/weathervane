@@ -191,17 +191,46 @@
 		position: fixed;
 		bottom: 0px;
 		background-color: #757575;
-		padding:6px 20px;
+		padding:6px 0;
 		font-size: 1.5em;
 		border-top: 1px solid #999;
 	}
 
+	footer a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	footer a:hover {
+		text-decoration: underline;
+	}
+
 	footer .center {
 		text-align:center;
-		max-width: 400px;
+		max-width: 600px;
 		display: inline-block;
 		white-space: pre-line;
 		color: #fff;
+	}
+
+	footer #citylinks {
+		display: block;
+		margin: 10px auto 15px;
+		padding-bottom: 15px;
+		color: #aaa;
+		border-bottom: 1px solid #aaa;
+	}
+
+	footer #citylinks h4 {
+		margin: 0 0 5px 0;
+		color: #fff;
+		font-weight: bold;
+		font-size: 1.1em;
+	}
+
+	footer #citylinks a {
+		margin: 0 10px;
+		display: inline-block;
 	}
 
 	.currentLink {
